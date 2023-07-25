@@ -12,8 +12,10 @@ public class Main {
         String numberCall = sc.nextLine();
 
         Phone phoneOne = new Phone(numberCurrent);
+        Phone phoneTwo = new Phone(numberCall);
         phoneOne.saveToNetwork(numberCurrent);
-        phoneOne.saveToNetwork(numberCall);
+        phoneTwo.saveToNetwork(numberCall);
+
 
         phoneOne.outgoingСall(numberCall);
 

@@ -1,7 +1,7 @@
 package Lesson1OOP.Level2ClassFZ;
 
 public class Network {
-    private String[] numbers = new String[100];
+    private static String[] numbers = new String[100];
 
     Network() {
     }
@@ -9,7 +9,7 @@ public class Network {
     public boolean registerNetwork(String numberPhone) {
 
         if (checkNumber(numberPhone)){
-            System.out.println("Номер уже зарегестрирован!");
+            System.out.println("Номер "+ numberPhone +" уже зарегестрирован!");
             return true;
         }
 
