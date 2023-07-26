@@ -1,4 +1,4 @@
-package Lesson1OOP.ClassFZ;
+package lesson1oop.classdz;
 
 public class Main {
     public static void main(String[] args) {

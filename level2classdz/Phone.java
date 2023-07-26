@@ -1,4 +1,4 @@
-package Lesson1OOP.Level2ClassFZ;
+package lesson1oop.level2classdz;
 
 public class Phone {
     private String numberPhone;
@@ -30,10 +30,10 @@ public class Phone {
             return;
         }
 
-        incomingCall(this.numberPhone);
+        incomingCall(numberPhone);
     }
 
-    public void incomingCall(String currentNumber){
-        System.out.println(": вам звонит номер: " + currentNumber);
+    public void incomingCall(String numberPhone){
+        System.out.println(numberPhone + " вам звонит номер: " + this.numberPhone);
     }
 }

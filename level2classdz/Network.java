@@ -1,4 +1,4 @@
-package Lesson1OOP.Level2ClassFZ;
+package lesson1oop.level2classdz;
 
 public class Network {
     private static String[] numbers = new String[100];

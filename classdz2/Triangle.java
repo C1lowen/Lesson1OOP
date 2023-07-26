@@ -1,4 +1,4 @@
-package Lesson1OOP.ClassFZ2;
+package lesson1oop.classdz2;
 
 public class Triangle {
     private double firstSide;

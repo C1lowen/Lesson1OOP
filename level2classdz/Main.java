@@ -1,4 +1,4 @@
-package Lesson1OOP.Level2ClassFZ;
+package lesson1oop.level2classdz;
 
 import java.util.Scanner;
 
