@@ -2,7 +2,8 @@ package lesson1oop.level2classdz;
 
 public class Phone {
     private String numberPhone;
-    private Network network = new Network();
+
+    private Network network;
 
     Phone(String numberPhone){
         this.numberPhone = numberPhone;
@@ -16,24 +17,36 @@ public class Phone {
         this.numberPhone = numberPhone;
     }
 
-    public void saveToNetwork(String phone){
-        network.registerNetwork(phone);
+
+
+    public Network getNetwork() {
+        return network;
     }
 
-    public void outgoingСall(String numberPhone){
-       if(!(network.checkNumber(this.numberPhone))){
-           System.out.println("Номер " + this.numberPhone + " не прошел регестрацию;");
-           return;
-        }
-        if(!(network.checkNumber(numberPhone))){
-            System.out.println("Номер " + numberPhone + " не прошел регестрацию;");
-            return;
-        }
-
-        incomingCall(numberPhone);
+    public void setNetwork(Network network) {
+        this.network = network;
     }
 
-    public void incomingCall(String numberPhone){
-        System.out.println(numberPhone + " вам звонит номер: " + this.numberPhone);
+
+    public void registerInNetwork(Network nwk) {
+        this.setNetwork(nwk);
+        nwk.saveToNetwork(this);
+    }
+
+    public void outgoingСall(String numberPhoneCall){
+       if(network != null && network.searchPhone(numberPhone) != null) {
+            if (network.searchPhone(numberPhoneCall) != null) {
+                Phone outcome = network.searchPhone(numberPhoneCall);
+                outcome.incomingCall(numberPhone);
+            }else{
+                System.out.println("Номер на который вы хотите позвонить не зарегистрирован в сети!");
+            }
+        }else{
+           System.out.println("Ваш номер не зарегистрирован в сети!");
+       }
+    }
+
+    public void incomingCall(String numberPhoneCall){
+        System.out.println(numberPhoneCall + " вам звонит номер: " + this.numberPhone);
     }
 }

@@ -4,20 +4,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc  = new Scanner(System.in);
 
-        System.out.print("Введите текущий номер: ");
-        String numberCurrent = sc.nextLine();
-        System.out.print("Введите номер на который звонить: ");
-        String numberCall = sc.nextLine();
+        Network network = new Network();
 
-        Phone phoneOne = new Phone(numberCurrent);
-        Phone phoneTwo = new Phone(numberCall);
-        phoneOne.saveToNetwork(numberCurrent);
-        phoneTwo.saveToNetwork(numberCall);
+        Phone phoneOne = new Phone("+38073123888");
+        Phone phoneTwo = new Phone("+380670105858");
+        Phone phoneTree = new Phone("+380731111111");
+
+        phoneOne.registerInNetwork(network);
+        phoneTwo.registerInNetwork(network);
+        phoneTree.registerInNetwork(network);
+
+        phoneOne.outgoingСall(phoneTwo.getNumberPhone());
+        phoneOne.outgoingСall(phoneTree.getNumberPhone());
+        phoneTwo.outgoingСall(phoneTree.getNumberPhone());
 
 
-        phoneOne.outgoingСall(numberCall);
 
 
     }

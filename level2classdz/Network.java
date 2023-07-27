@@ -1,41 +1,51 @@
 package lesson1oop.level2classdz;
 
+import java.util.Arrays;
+
 public class Network {
-    private static String[] numbers = new String[100];
+    private Phone[] numbers = new Phone[10];
 
-    Network() {
+
+    public Network(Phone[] numbers) {
+        this.numbers = numbers;
     }
 
-    public boolean registerNetwork(String numberPhone) {
+    public Network() {
+    }
 
-        if (checkNumber(numberPhone)){
-            System.out.println("Номер "+ numberPhone +" уже зарегестрирован!");
-            return true;
+    public Phone[] getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(Phone[] numbers) {
+        this.numbers = numbers;
+    }
+
+    public void saveToNetwork(Phone phone) {
+        if (this.searchPhone(phone.getNumberPhone()) == null) {
+            for (int i = 0; i < numbers.length; i++) {
+                if (this.numbers[i] == null) {
+                    this.numbers[i] = phone;
+                    break;
+                }
+            }
         }
 
-        boolean result = saveToNetwork(numberPhone);
-
-        return result;
     }
 
-    public boolean checkNumber(String numberPhone){
+    public Phone searchPhone(String number) {
         for (int i = 0; i < numbers.length; i++) {
-            if(numberPhone == numbers[i]){
-             return true;
+            if (this.numbers[i] != null && this.numbers[i].getNumberPhone().equals(number)) {
+                return this.numbers[i];
             }
         }
-        return false;
+        return null;
     }
 
-    private boolean saveToNetwork(String numberPhone){
-        for(int i = 0; i < numbers.length; i++){
-            if(numbers[i] == null){
-                numbers[i] = numberPhone;
-                System.out.println("Номер "+ numberPhone + " зарегестрирован, можете использовать!");
-                return true;
-            }
-        }
-        return false;
+    @Override
+    public String toString() {
+        return "Network{" +
+                "numbers=" + Arrays.toString(numbers) +
+                '}';
     }
-
 }
