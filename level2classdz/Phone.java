@@ -49,4 +49,12 @@ public class Phone {
     public void incomingCall(String numberPhoneCall){
         System.out.println(numberPhoneCall + " вам звонит номер: " + this.numberPhone);
     }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "numberPhone='" + numberPhone + '\'' +
+                ", network=" + network +
+                '}';
+    }
 }
